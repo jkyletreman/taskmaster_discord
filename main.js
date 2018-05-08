@@ -1,6 +1,6 @@
 // require the discord.js module
 const Discord = require('discord.js');
-
+const config = require('./config.json');
 // create a new Discord client
 const client = new Discord.Client();
 
@@ -13,11 +13,11 @@ client.on('ready', () => {
 });
 
 client.on('message', message => {
-  if (message.content === '!ping') {
+  if (message.content === `${config.prefix}ping`) {
     // send back "Pong." to the channel the message was sent in
     message.channel.send('Pong.');
   }
 });
 
 // login to Discord with your app's token
-client.login('NDQzNTI3NDMxMzY2OTAxNzc3.DdOsKA.XJa0TFUkGSwmsQiLV633ouf7dwM');
+client.login(config.token);
